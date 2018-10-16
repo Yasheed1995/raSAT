@@ -56,7 +56,7 @@ value caml_isTheoConsis (char *sIntv, char *sCons, char *sCheck, int ia){
 
 char* caml_logResult(char * sIntv, char *sCons, char *sCheck, int ia)
 {
-  //CAMLparam0 ();
+  CAMLparam0 ();
   CAMLlocalN(ml_args, 4);
   ml_args[0] = caml_copy_string(sIntv);
   ml_args[1] = caml_copy_string(sCons);

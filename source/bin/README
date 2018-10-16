@@ -1,0 +1,3 @@
+Run:
+  python smt.py filename.smt2 timeout
+where timeout is in seconds.
