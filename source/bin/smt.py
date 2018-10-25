@@ -22,6 +22,7 @@ def alarm_handler(signum, frame):
     raise Alarm
  
 def remove_tmp (filename):
+  return
   try:
     os.remove(filename + '.tmp')
   except OSError:
@@ -48,6 +49,7 @@ def run_raSAT (filename, bounds, timeout):
     proc.wait()
     try:
       with open(filename + '.tmp', 'rb') as outfile:
+        print str(outfile.read())
         raSATResult = outfile.read().rstrip()
         outfile.close()
     except IOError:
@@ -69,7 +71,7 @@ def run(filename, initLowerBound, initUpperBound, timeout):
     raSATResult = run_raSAT(filename, 'lb=' + str(lowerBound) + ' ' + str(upperBound), timeout-runTime)
     
     if raSATResult == 'unsat':
-      raSATResult = run_raSAT(filename, 'lb=-inf inf', timeout-runTime)  
+        raSATResult = run_raSAT(filename, 'lb=-inf inf', timeout-runTime)  
     runTime = time.time() - startTime
   print raSATResult
 
