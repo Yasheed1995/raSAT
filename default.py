@@ -88,6 +88,6 @@ def run(filename, initLowerBound, initUpperBound, sbox, timeout):
   remove_tmp(filename, "0.3")
 
 # get timeout from environment
-timeout = float(os.environ.get('STAREXEC_CPU_LIMIT'))
+#timeout = float(os.environ.get('STAREXEC_CPU_LIMIT'))
 
-run(sys.argv[1], -10, 10,  0.1, timeout)
+run(sys.argv[1], -10, 10,  0.1, int(sys.argv[2]))
